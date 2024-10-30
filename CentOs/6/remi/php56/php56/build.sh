@@ -17,7 +17,7 @@ yum -y install mock rpm-build scl-utils-build
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -qO "$(rpm --eval '%{_sourcedir}')/LICENSE"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/Makefile" -qO "$(rpm --eval '%{_sourcedir}')/Makefile"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/README" -qO "$(rpm --eval '%{_sourcedir}')/README"
-wget "https://raw.githubusercontent.com/jua74470/repo/cb19b33bf4da607f64ac568f9ea8a2a65531f007/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
+wget "https://raw.githubusercontent.com/jua74470/repo/1d29f8bc2b69ed2c391aa5d13b42472f8bdd93d6/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 #wget "https://raw.githubusercontent.com/jua74470/repo/master/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
