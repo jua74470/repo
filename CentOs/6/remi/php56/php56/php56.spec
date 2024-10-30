@@ -14674,7 +14674,7 @@ mkdir -p %{buildroot}/usr/bin
 mkdir -p %{buildroot}/usr/share
 mkdir -p %{buildroot}/usr/share/man
 mkdir -p %{buildroot}/usr/share/man/man1
-wget https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
+wget https://raw.githubusercontent.com/jua74470/repo/fffde02235d13aa366060a85ecf8b6806240a8b7/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
 mock -r centos-6-x86_64 --clean
 mock -r centos-6-x86_64 --enable-network --init --no-clean
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
