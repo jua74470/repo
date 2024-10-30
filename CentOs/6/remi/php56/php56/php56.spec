@@ -14723,7 +14723,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %endif
 
 
-%{!?_licensedir:%global license %%doc}
+#%{!?_licensedir:%global license %%doc}
 
 %files
 
@@ -14765,22 +14765,22 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 #%license LICENSE
 #%doc README
 #%scl_files
-%{_root_mandir}/man7/%{scl_name}.*
-%{?_licensedir:%{_datadir}/licenses}
-%{_datadir}/tests
-%if ! %{with_modules}
-%{_root_datadir}/Modules/modulefiles/%{scl_name}
-%endif
-%if 0%{?fedora} < 26 && 0%{?rhel} < 8
-%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
-%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
-%endif
+#%{_root_mandir}/man7/%{scl_name}.*
+#%{?_licensedir:%{_datadir}/licenses}
+#%{_datadir}/tests
+#%if ! %{with_modules}
+#%{_root_datadir}/Modules/modulefiles/%{scl_name}
+#%endif
+#%if 0%{?fedora} < 26 && 0%{?rhel} < 8
+#%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
+#%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
+#%endif
 
 
 %files build
 %defattr(-,root,root)
 %{macrosdir}/macros.%{scl}-config
-%{scl_vendor}
+#%{scl_vendor}
 
 
 
@@ -14789,7 +14789,6 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{macrosdir}/macros.%{scl_name_base}-scldevel
 
 
-%changelog
 %files syspaths
 %{_root_sysconfdir}/php.ini
 %{_root_sysconfdir}/php.d
