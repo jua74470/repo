@@ -216,7 +216,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/*
 #/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/*
 #/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
+#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/*
 %else
@@ -233,7 +233,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/*
 #/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/*
 #/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
+#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/*
 %endif
