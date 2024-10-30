@@ -100,6 +100,7 @@ Summary:   System-wide wrappers for the %{name} package
 Requires:  %{?scl_name}-runtime%{?_isa} = %{version}-%{release}
 Requires:  %{?scl_name}-php-cli%{?_isa}
 Requires:  %{?scl_name}-php-common%{?_isa}
+Requires:  %{?scl_name}-php-devel%{?_isa}
 Conflicts: php-common
 Conflicts: php-cli
 Conflicts: php54-syspaths
@@ -216,14 +217,14 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 
 
 %files syspaths
-%{_root_sysconfdir}/php.ini
-%{_root_sysconfdir}/php.d
-%{_root_bindir}/php
-%{_root_bindir}/phar
-%{_root_bindir}/php-cgi
-%{_root_mandir}/man1/php.1.gz
-%{_root_mandir}/man1/phar.1.gz
-%{_root_mandir}/man1/php-cgi.1.gz
+#%{_root_sysconfdir}/php.ini
+#%{_root_sysconfdir}/php.d
+#%{_root_bindir}/php
+#%{_root_bindir}/phar
+#%{_root_bindir}/php-cgi
+#%{_root_mandir}/man1/php.1.gz
+#%{_root_mandir}/man1/phar.1.gz
+#%{_root_mandir}/man1/php-cgi.1.gz
 
 
 %changelog
