@@ -23,6 +23,6 @@ wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/p
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
 wget https://github.com/jua74470/mock/raw/refs/heads/main/mock-core-configs/etc/mock/eol/centos-6-x86_64.cfg -O /etc/mock/centos-6-x86_64.cfg
 mock -r centos-6-x86_64 --clean
-mock -r centos-6-x86_64 --enable-network --shell
+#mock -r centos-6-x86_64 --enable-network --shell
 mock -r centos-6-x86_64 --enable-network --init
 mock -r centos-6-x86_64 --enable-network --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
