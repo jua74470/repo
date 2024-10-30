@@ -1,5 +1,5 @@
 #!/bin/bash
-commit=aa59b42dbdb06d76d19bdbb12c0dfd07a22a836e
+commit=26cc5e075e586f0054b99ddfd4490b02cc8fc4e0
 mkdir -p $(rpm --eval '%{_topdir}')/
 mkdir -p $(rpm --eval '%{_builddir}')/
 mkdir -p $(rpm --eval '%{_rpmdir}')/
@@ -37,11 +37,11 @@ mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_
 ls /var/lib/mock/fedora-39-x86_64/result
 exit
 cd /var/lib/mock/epel-6-x86_64/root/
-rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm | cpio -idmv
-rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-build-5.6-1.el6.x86_64.rpm | cpio -idmv
-rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-runtime-5.6-1.el6.x86_64.rpm | cpio -idmv
-rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-scldevel-5.6-1.el6.x86_64.rpm | cpio -idmv
-rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-syspaths-5.6-1.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-5.6-40.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-build-5.6-40.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-runtime-5.6-40.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-scldevel-5.6-40.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-syspaths-5.6-40.el6.x86_64.rpm | cpio -idmv
 exit
 #/var/lib/mock/epel-6-x86_64/root/trouvemoi
 #mock -r centos-6-x86_64 --enable-network --no-clean --install /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm \
