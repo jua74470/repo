@@ -1,3 +1,7 @@
 export PATH=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/bin:/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/sbin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/lib64
 export MANPATH=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/man:${MANPATH}
+export CC=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/bin/gcc
+export GCC=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/bin/gcc
+export CPP=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/bin/g++
+export GPP=/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/bin/g++
