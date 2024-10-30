@@ -14668,112 +14668,12 @@ mkdir -p %{buildroot}/usr/share/man/man7
 mkdir -p %{buildroot}/var
 mkdir -p %{buildroot}/var/home/xtreamcodes/iptv_xtream_codes/prefix
 mkdir -p %{buildroot}/var/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}
-#scl devel
-mkdir -p %{buildroot}/etc/rpm/
-wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}/etc/rpm/macros.php-scldevel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-cat <<EOF | tee enable
-export PATH=%{_bindir}:%{_sbindir}\${PATH:+:\${PATH}}
-export LD_LIBRARY_PATH=%{_libdir}\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
-export MANPATH=%{_mandir}:\${MANPATH}
-EOF
-
-# Broken: /usr/share/Modules/bin/createmodule.sh enable | tee envmod
-# See https://bugzilla.redhat.com/show_bug.cgi?id=1197321
-cat << EOF | tee envmod
-#%%Module1.0
-prepend-path    X_SCLS              %{scl}
-prepend-path    PATH                %{_bindir}:%{_sbindir}
-prepend-path    LD_LIBRARY_PATH     %{_libdir}
-prepend-path    MANPATH             %{_mandir}
-prepend-path    PKG_CONFIG_PATH     %{_libdir}/pkgconfig
-EOF
-
-# generate rpm macros file for depended collections
-cat << EOF | tee scldev
-%%scl_%{scl_name_base}         %{scl}
-%%scl_prefix_%{scl_name_base}  %{scl_prefix}
-EOF
-
-# This section generates README file from a template and creates man page
-# from that file, expanding RPM macros in the template file.
-cat >README <<'EOF'
-%{expand:%(cat %{SOURCE1})}
-EOF
-
-# copy the license file so %%files section sees it
-cp %{SOURCE2} .
-
-: prefix in %{_prefix}
-: config in %{_sysconfdir}
-: data in %{_localstatedir}
-
-
-%build
-mkdir -p %{buildroot}/etc/scl/prefixes/
-
-/etc/scl/prefixes/php56
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/LICENSE
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/README
-/usr/share/Modules/modulefiles/php56
-/usr/share/man/man7/php56.7.gz
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# generate a helper script that will be used by help2man
-cat >h2m_helper <<'EOF'
-#!/bin/bash
-[ "$1" == "--version" ] && echo "%{scl_name} Software Collection (PHP %{version})" || cat README
-EOF
-chmod a+x h2m_helper
-
-# generate the man page
-help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
-echo "ls /"
-#ls /
-#sleep 30
+mkdir -p %{buildroot}/etc
+mkdir -p %{buildroot}/usr
+mkdir -p %{buildroot}/usr/bin
+mkdir -p %{buildroot}/usr/share
+mkdir -p %{buildroot}/usr/share/man
+mkdir -p %{buildroot}/usr/share/man/man1
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
 cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/
@@ -14802,55 +14702,10 @@ mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
 cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
 cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
+#scl devel
+mkdir -p %{buildroot}/etc/rpm/
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}/etc/rpm/macros.php-scldevel
 
-
-%install
-install -D -m 644 enable %{buildroot}%{_scl_scripts}/enable
-%if %{with_modules}
-install -D -m 644 envmod %{buildroot}%{_scl_scripts}/%{scl_name}
-%else
-install -D -m 644 envmod %{buildroot}%{_root_datadir}/Modules/modulefiles/%{scl_name}
-%endif
-install -D -m 644 scldev %{buildroot}%{macrosdir}/macros.%{scl_name_base}-scldevel
-install -D -m 644 %{scl_name}.7 %{buildroot}%{_root_mandir}/man7/%{scl_name}.7
-
-install -d -m 755 %{buildroot}%{_datadir}/licenses
-install -d -m 755 %{buildroot}%{_datadir}/doc/pecl
-install -d -m 755 %{buildroot}%{_datadir}/tests/pecl
-install -d -m 755 %{buildroot}%{_localstatedir}/lib/pear/pkgxml
-
-#%scl_install
-
-# Add the scl_package_override macro
-sed -e 's/@SCL@/%{scl}/g;s:@PREFIX@:/opt/%{scl_vendor}:;s/@VENDOR@/%{scl_vendor}/' %{SOURCE0} \
-  | tee -a %{buildroot}%{_root_sysconfdir}/rpm/macros.%{scl}-config
-
-# Move in correct location, if needed
-if [ "%{_root_sysconfdir}/rpm" != "%{macrosdir}" ]; then
-  mv  %{buildroot}%{_root_sysconfdir}/rpm/macros.%{scl}-config \
-      %{buildroot}%{macrosdir}/macros.%{scl}-config
-fi
-
-%if 0%{?fedora} < 26 && 0%{?rhel} < 8
-# Create symlinks
-mkdir -p                %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/
-ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/%{scl}
-mkdir -p                %{buildroot}%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}
-ln -s %{_localstatedir} %{buildroot}%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/%{scl}
-%endif
-
-# syspaths
-mkdir -p %{buildroot}%{_root_sysconfdir}
-ln -s %{_sysconfdir}/php.ini %{buildroot}%{_root_sysconfdir}/php.ini
-ln -s %{_sysconfdir}/php.d   %{buildroot}%{_root_sysconfdir}/php.d
-mkdir -p %{buildroot}%{_root_bindir}
-ln -s %{_bindir}/php     %{buildroot}%{_root_bindir}/php
-ln -s %{_bindir}/phar    %{buildroot}%{_root_bindir}/phar
-ln -s %{_bindir}/php-cgi %{buildroot}%{_root_bindir}/php-cgi
-mkdir -p %{buildroot}%{_root_mandir}/man1
-ln -s %{_mandir}/man1/php.1.gz     %{buildroot}%{_root_mandir}/man1/php.1.gz
-ln -s %{_mandir}/man1/phar.1.gz    %{buildroot}%{_root_mandir}/man1/phar.1.gz
-ln -s %{_mandir}/man1/php-cgi.1.gz %{buildroot}%{_root_mandir}/man1/php-cgi.1.gz
 
 
 %post runtime
@@ -14875,8 +14730,36 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 
 %if 0%{?fedora} < 19 && 0%{?rhel} < 7
 %files runtime
+%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 %else
 %files runtime -f filesystem
+%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 %endif
 %defattr(-,root,root)
 %license LICENSE
@@ -14898,20 +14781,6 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %defattr(-,root,root)
 %{macrosdir}/macros.%{scl}-config
 %{scl_vendor}
-%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 
 
 
