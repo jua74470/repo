@@ -1,5 +1,5 @@
 #!/bin/bash
-commit=26cc5e075e586f0054b99ddfd4490b02cc8fc4e0
+commit=0348ec05ecaef93cf3ce073067e11e4a431da9ff
 mkdir -p $(rpm --eval '%{_topdir}')/
 mkdir -p $(rpm --eval '%{_builddir}')/
 mkdir -p $(rpm --eval '%{_rpmdir}')/
