@@ -1,4 +1,4 @@
-%scl_vendor   @VENDOR@
+%scl_vendor   /
 %_scl_prefix  @PREFIX@
 %_sclreq     (@VENDOR@)
 
