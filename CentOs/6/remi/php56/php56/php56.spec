@@ -38,9 +38,9 @@ Release:       1%{?dist}
 Group:         Development/Languages
 License:       GPL-2.0-or-later
 
-Source0:       macros-build
-Source1:       README
-Source2:       LICENSE
+#Source0:       macros-build
+#Source1:       README
+#Source2:       LICENSE
 
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: scl-utils-build
@@ -48,6 +48,7 @@ BuildRequires: help2man
 # Temporary work-around
 BuildRequires: iso-codes
 BuildRequires: environment-modules
+BuildRequires: wget
 
 Requires:      %{?scl_prefix}php-common%{?_isa} >= 5.6.31
 Requires:      %{?scl_prefix}php-cli%{?_isa}
@@ -122,6 +123,44 @@ be installed on one system.
 %prep
 %setup -c -T
 
+%build
+mkdir -p %{buildroot}/etc/scl/prefixes/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/
+mkdir -p %{buildroot}/usr/share/Modules/modulefiles/
+mkdir -p %{buildroot}/usr/share/man/man7/
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/scl/prefixes/php56 -qO %{buildroot}/etc/scl/prefixes/php56
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable -O %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/LICENSE -O %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/LICENSE
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/README -O %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/README
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/usr/share/Modules/modulefiles/php56 -O %{buildroot}/usr/share/Modules/modulefiles/php56
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/usr/share/man/man7/php56.7.gz -O %{buildroot}/usr/share/man/man7/php56.7.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 cat <<EOF | tee enable
 export PATH=%{_bindir}:%{_sbindir}\${PATH:+:\${PATH}}
 export LD_LIBRARY_PATH=%{_libdir}\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}
@@ -160,6 +199,35 @@ cp %{SOURCE2} .
 
 
 %build
+mkdir -p %{buildroot}/etc/scl/prefixes/
+
+/etc/scl/prefixes/php56
+/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable
+/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/LICENSE
+/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/README
+/usr/share/Modules/modulefiles/php56
+/usr/share/man/man7/php56.7.gz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # generate a helper script that will be used by help2man
 cat >h2m_helper <<'EOF'
 #!/bin/bash
