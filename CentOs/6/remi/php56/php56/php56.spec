@@ -203,6 +203,11 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/*
+/etc/scl/prefixes/php56
+/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable
+/usr/share/Modules/modulefiles/php56
+/usr/share/man/man7/php56.7.gz
+
 
 
 
