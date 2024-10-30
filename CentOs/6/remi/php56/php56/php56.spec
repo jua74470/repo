@@ -168,8 +168,8 @@ mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
 cp -R /var/lib/mock/epel-6-x86_64/root/usr/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
 cp -R /var/lib/mock/epel-6-x86_64/root/var/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
-mkdir -p %{buildroot}/etc/rpm/
-wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}/etc/rpm/macros.php-scldevel
+mkdir -p %{buildroot}%{macrosdir}/
+wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}%{macrosdir}/macros.php-scldevel
 
 
 
@@ -212,7 +212,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 
 %files scldevel
 %defattr(-,root,root)
-%{macrosdir}/macros.%{scl_name_base}-scldevel
+%{macrosdir}/macros.php-scldevel
 
 
 %files syspaths
