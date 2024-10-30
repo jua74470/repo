@@ -1,3 +1,3 @@
 ```
-wget https://raw.githubusercontent.com/jua74470/repo/05ca7fefa7a5c53bdec01eb9246961f2f8dc680c/CentOs/6/remi/php56/php56/build.sh -O /root/build.sh && bash /root/build.sh
+wget https://raw.githubusercontent.com/jua74470/repo/e84b746728f1994954e0775b4c1b974771c8e909/CentOs/6/remi/php56/php56/build.sh -O /root/build.sh && bash /root/build.sh
 ```
