@@ -29,6 +29,7 @@ mock -r fedora-39-x86_64 --clean
 #rm -rf /var/lib/mock/epel-6-x86_64/result/*
 #mock -r centos-6-x86_64 --enable-network --shell --no-clean
 mock -r fedora-39-x86_64 --enable-network --init --no-clean
+mock -r fedora-39-x86_64 --enable-network --no-clean --install scl-utils-build
 mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
 ls /var/lib/mock/fedora-39-x86_64/result
 exit
