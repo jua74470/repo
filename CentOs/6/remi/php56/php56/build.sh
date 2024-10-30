@@ -26,4 +26,4 @@ mock -r centos-6-x86_64 --clean
 #mock -r centos-6-x86_64 --enable-network --shell
 mock -r centos-6-x86_64 --enable-network --init
 mock -r centos-6-x86_64 --enable-network --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
-ls /var/lib/mock/epel-6-i386/result
+ls /var/lib/mock/epel-6-x86_64/result
