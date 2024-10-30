@@ -217,7 +217,7 @@ install -d -m 755 %{buildroot}%{_datadir}/doc/pecl
 install -d -m 755 %{buildroot}%{_datadir}/tests/pecl
 install -d -m 755 %{buildroot}%{_localstatedir}/lib/pear/pkgxml
 
-%scl_install
+#%scl_install
 
 # Add the scl_package_override macro
 sed -e 's/@SCL@/%{scl}/g;s:@PREFIX@:/opt/%{scl_vendor}:;s/@VENDOR@/%{scl_vendor}/' %{SOURCE0} \
