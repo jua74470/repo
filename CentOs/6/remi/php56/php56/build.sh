@@ -30,6 +30,12 @@ rm -rf /var/lib/mock/epel-6-x86_64/result/*
 mock -r centos-6-x86_64 --enable-network --init --no-clean
 mock -r centos-6-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
 ls /var/lib/mock/epel-6-x86_64/result
+cd /var/lib/mock/epel-6-x86_64/root/
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-build-5.6-1.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-runtime-5.6-1.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-scldevel-5.6-1.el6.x86_64.rpm | cpio -idmv
+rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-syspaths-5.6-1.el6.x86_64.rpm | cpio -idmv
 exit
 #/var/lib/mock/epel-6-x86_64/root/trouvemoi
 #mock -r centos-6-x86_64 --enable-network --no-clean --install /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm \
