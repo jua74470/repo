@@ -60,14 +60,18 @@ find . -type d >> ../filelist
 
 
 
-
+rm -rf *
 rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-scldevel-5.6-1.el6.x86_64.rpm | cpio -idmv
+find . -type f > ../filelist
+find . -type d >> ../filelist
 
 
 
 
 
 rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-syspaths-5.6-1.el6.x86_64.rpm | cpio -idmv
+find . -type f > ../filelist
+find . -type d >> ../filelist
 
 
 
