@@ -1,0 +1,21 @@
+%scl_vendor   %{scl_vendor}
+%_scl_prefix  /opt/%{scl_vendor}
+%_sclreq     (%{scl_vendor})
+
+%scl_package_override() %{expand:
+  %{?php56___pear:%global __pear %php56___pear}
+  %{?php56___pecl:%global __pecl %php56___pecl}
+  %{?php56___php:%global  __php  %php56___php}
+  %{?php56___phpize:%global  __phpize  %php56___phpize}
+  %{?php56___phpconfig:%global  __phpconfig  %php56___phpconfig}
+  %{?php56_pecl_xmldir:%global pecl_xmldir %php56_pecl_xmldir}
+  %global pear_metadir %php56_pear_metadir
+  %global pear_xmldir  %php56_pear_xmldir
+  %global php_core_api %php56_php_core_api
+  %global php_zend_api %php56_php_zend_api
+  %global php_pdo_api  %php56_php_pdo_api
+  %global php_version  %php56_php_version
+  %global php_extdir   %php56_php_extdir
+  %global php_inidir   %php56_php_inidir
+  %global php_incldir  %php56_php_incldir
+}
