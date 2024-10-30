@@ -25,9 +25,11 @@ wget "https://raw.githubusercontent.com/jua74470/repo/531d4bb6e106566951dd67bf6d
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
 #wget https://raw.githubusercontent.com/jua74470/repo/fffde02235d13aa366060a85ecf8b6806240a8b7/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
 #mock -r centos-6-x86_64 --clean
+#mkdir -p /var/lib/mock/epel-6-x86_64/root/
 mock -r fedora-39-x86_64 --clean
 #rm -rf /var/lib/mock/epel-6-x86_64/result/*
 #mock -r centos-6-x86_64 --enable-network --shell --no-clean
+#mock -r centos-6-x86_64 --enable-network --init --no-clean >/var/lib/mock/epel-6-x86_64/root/
 mock -r fedora-39-x86_64 --enable-network --init --no-clean
 mock -r fedora-39-x86_64 --enable-network --no-clean --install scl-utils-build
 mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
