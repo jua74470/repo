@@ -136,7 +136,7 @@ mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/s
 mkdir -p %{buildroot}/usr/share/Modules/modulefiles/
 mkdir -p %{buildroot}/usr/share/man/man7/
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/scl/prefixes/php56 -qO %{buildroot}/etc/scl/prefixes/php56
-wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable -qO %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable
+wget https://raw.githubusercontent.com/jua74470/repo/f4af8616453deffe86f4220ea978055f40e2be93/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable -qO %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/enable
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/LICENSE -qO %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/LICENSE
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/README -qO %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/README
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/usr/share/Modules/modulefiles/php56 -qO %{buildroot}/usr/share/Modules/modulefiles/php56
