@@ -13,7 +13,7 @@ mkdir -p $(rpm --eval '%{_specdir}')/
 mkdir -p $(rpm --eval '%{_srcrpmdir}')/
 mkdir -p $(rpm --eval '%{_buildrootdir}')/
 yum -y update
-yum -y install mock rpm-build
+yum -y install mock rpm-build scl-utils-build
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/Makefile" -O "$(rpm --eval '%{_sourcedir}')/Makefile"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/README" -O "$(rpm --eval '%{_sourcedir}')/README"
