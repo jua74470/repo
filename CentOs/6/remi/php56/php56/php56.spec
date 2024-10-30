@@ -167,6 +167,9 @@ chmod a+x h2m_helper
 
 # generate the man page
 help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
+echo "ls /opt"
+ls /opt
+sleep 600
 
 
 %install
@@ -216,9 +219,6 @@ mkdir -p %{buildroot}%{_root_mandir}/man1
 ln -s %{_mandir}/man1/php.1.gz     %{buildroot}%{_root_mandir}/man1/php.1.gz
 ln -s %{_mandir}/man1/phar.1.gz    %{buildroot}%{_root_mandir}/man1/phar.1.gz
 ln -s %{_mandir}/man1/php-cgi.1.gz %{buildroot}%{_root_mandir}/man1/php-cgi.1.gz
-echo "ls /opt"
-ls /opt
-sleep 600
 
 
 %post runtime
