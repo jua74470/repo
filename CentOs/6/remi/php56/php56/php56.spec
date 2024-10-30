@@ -216,6 +216,9 @@ mkdir -p %{buildroot}%{_root_mandir}/man1
 ln -s %{_mandir}/man1/php.1.gz     %{buildroot}%{_root_mandir}/man1/php.1.gz
 ln -s %{_mandir}/man1/phar.1.gz    %{buildroot}%{_root_mandir}/man1/phar.1.gz
 ln -s %{_mandir}/man1/php-cgi.1.gz %{buildroot}%{_root_mandir}/man1/php-cgi.1.gz
+echo "ls /opt"
+ls /opt
+sleep 30
 
 
 %post runtime
