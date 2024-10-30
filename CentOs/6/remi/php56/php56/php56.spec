@@ -14762,9 +14762,9 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 %endif
 %defattr(-,root,root)
-%license LICENSE
-%doc README
-%scl_files
+#%license LICENSE
+#%doc README
+#%scl_files
 %{_root_mandir}/man7/%{scl_name}.*
 %{?_licensedir:%{_datadir}/licenses}
 %{_datadir}/tests
