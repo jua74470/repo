@@ -7,7 +7,7 @@ BuildRequires: libattr-devel >= 2.4.1
 BuildRequires: autoconf, libtool >= 1.5, gettext, gawk
 Requires: libacl = %{version}-%{release}
 #http://download.savannah.gnu.org/releases-noredirect/acl/acl-%{version}.src.tar.gz
-Source: https://github.com/jua74470/repo/releases/download/download/acl-2.2.49.src.tar.gz
+Source: https://download-mirror.savannah.gnu.org/releases/acl/acl-%{version}.src.tar.gz
 Patch0: acl-2.2.3-multilib.patch
 Patch1: acl-2.2.39-build.patch
 Patch2: acl-2.2.49-setfacl-walk.patch
