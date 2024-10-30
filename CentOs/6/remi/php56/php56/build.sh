@@ -21,7 +21,7 @@ wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/p
 wget "https://raw.githubusercontent.com/jua74470/repo/master/CentOs/6/remi/php56/php56/macros-build" -O "$(rpm --eval '%{_sourcedir}')/macros-build"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/php56.spec" -O "$(rpm --eval '%{_specdir}')/php56.spec"
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
-wget https://github.com/jua74470/mock/raw/refs/heads/main/mock-core-configs/etc/mock/eol/centos-6-x86_64.cfg -O /etc/mock/centos-6-x86_64.cfg
+wget https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -O /etc/mock/centos-6-x86_64.cfg
 mock -r centos-6-x86_64 --clean
 #mock -r centos-6-x86_64 --enable-network --shell
 mock -r centos-6-x86_64 --enable-network --init
