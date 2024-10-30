@@ -34,7 +34,7 @@
 Summary:       Package that installs PHP 5.6
 Name:          %scl_name
 Version:       5.6
-Release:       1%{?dist}
+Release:       2%{?dist}
 Group:         Development/Languages
 License:       GPL-2.0-or-later
 
@@ -108,6 +108,11 @@ Conflicts: php70-syspaths
 Conflicts: php71-syspaths
 Conflicts: php72-syspaths
 Conflicts: php73-syspaths
+Conflicts: php74-syspaths
+Conflicts: php80-syspaths
+Conflicts: php81-syspaths
+Conflicts: php82-syspaths
+Conflicts: php83-syspaths
 
 %description syspaths
 System-wide wrappers for the %{name}-php-cli package.
@@ -168,8 +173,8 @@ cp -R /var/lib/mock/epel-6-x86_64/root/sbin/* %{buildroot}/home/xtreamcodes/iptv
 #cp -R /var/lib/mock/epel-6-x86_64/root/selinux/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
 #mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
 #cp -R /var/lib/mock/epel-6-x86_64/root/srv/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
-cp -R /var/lib/mock/epel-6-x86_64/root/sys/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
+#cp -R /var/lib/mock/epel-6-x86_64/root/sys/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
 cp -R /var/lib/mock/epel-6-x86_64/root/usr/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
@@ -193,9 +198,6 @@ restorecon -R %{?_scl_root}     &>/dev/null || :
 restorecon -R %{_sysconfdir}    &>/dev/null || :
 restorecon -R %{_localstatedir} &>/dev/null || :
 %endif
-
-
-#%{!?_licensedir:%global license %%doc}
 
 %files
 
