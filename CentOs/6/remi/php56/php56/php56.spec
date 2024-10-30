@@ -168,8 +168,8 @@ chmod a+x h2m_helper
 # generate the man page
 help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 echo "ls /opt"
-ls /opt
-sleep 600
+ls /
+sleep 30
 
 
 %install
