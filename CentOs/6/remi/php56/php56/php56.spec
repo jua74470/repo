@@ -14674,34 +14674,37 @@ mkdir -p %{buildroot}/usr/bin
 mkdir -p %{buildroot}/usr/share
 mkdir -p %{buildroot}/usr/share/man
 mkdir -p %{buildroot}/usr/share/man/man1
+wget https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
+mock -r centos-6-x86_64 --clean
+mock -r centos-6-x86_64 --enable-network --init --no-clean
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
+cp -R /var/lib/mock/epel-6-x86_64/root/bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/
+cp -R /var/lib/mock/epel-6-x86_64/root/boot/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/
+cp -R /var/lib/mock/epel-6-x86_64/root/dev/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/
+cp -R /var/lib/mock/epel-6-x86_64/root/etc/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/
+cp -R /var/lib/mock/epel-6-x86_64/root/lib/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/
+cp -R /var/lib/mock/epel-6-x86_64/root/lib64/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
+cp -R /var/lib/mock/epel-6-x86_64/root/opt/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
+cp -R /var/lib/mock/epel-6-x86_64/root/proc/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
+cp -R /var/lib/mock/epel-6-x86_64/root/sbin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
+cp -R /var/lib/mock/epel-6-x86_64/root/selinux/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/
+cp -R /var/lib/mock/epel-6-x86_64/root/srv/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/
+cp -R /var/lib/mock/epel-6-x86_64/root/sys/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
+cp -R /var/lib/mock/epel-6-x86_64/root/usr/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
-cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
+cp -R /var/lib/mock/epel-6-x86_64/root/var/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
 #scl devel
 mkdir -p %{buildroot}/etc/rpm/
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}/etc/rpm/macros.php-scldevel
@@ -14730,6 +14733,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 
 %if 0%{?fedora} < 19 && 0%{?rhel} < 7
 %files runtime
+%defattr(-,root,root)
 %{_scl_prefix}/prefix/%{scl_vendor}/root/bin/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/boot/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/dev/*
@@ -14746,6 +14750,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 %else
 %files runtime -f filesystem
+%defattr(-,root,root)
 %{_scl_prefix}/prefix/%{scl_vendor}/root/bin/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/boot/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/dev/*
@@ -14761,7 +14766,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_scl_prefix}/prefix/%{scl_vendor}/root/usr/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 %endif
-%defattr(-,root,root)
+#
 #%license LICENSE
 #%doc README
 #%scl_files
