@@ -169,46 +169,51 @@ chmod a+x h2m_helper
 
 # generate the man page
 help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
-echo "ls /opt"
-ls /
-sleep 30
-#mkdir -p %{buildroot}/bin/
-#cp -R /bin/* %{buildroot}/bin/
-#mkdir -p %{buildroot}/boot/
-#cp -R /bin/* %{buildroot}/boot/
-#mkdir -p %{buildroot}/builddir/
-#cp -R /bin/* %{buildroot}/builddir/
-#mkdir -p %{buildroot}/dev/
-#cp -R /bin/* %{buildroot}/dev/
-#mkdir -p %{buildroot}/etc/
-#cp -R /bin/* %{buildroot}/etc/
-#mkdir -p %{buildroot}/home/
-#cp -R /bin/* %{buildroot}/home/
-#mkdir -p %{buildroot}/installation-homedir/
-#cp -R /bin/* %{buildroot}/installation-homedir/
-#mkdir -p %{buildroot}/lib/
-#cp -R /bin/* %{buildroot}/lib/
-#mkdir -p %{buildroot}/lib64/
-#cp -R /bin/* %{buildroot}/lib64/
-#mkdir -p %{buildroot}/media/
-#cp -R /bin/* %{buildroot}/media/
-#mkdir -p %{buildroot}/mnt/
-#cp -R /bin/* %{buildroot}/mnt/
-#mkdir -p %{buildroot}/opt/
-#cp -R /bin/* %{buildroot}/opt/
-#mkdir -p %{buildroot}/proc/
-#cp -R /bin/* %{buildroot}/proc/
-#mkdir -p %{buildroot}/root/
-#cp -R /bin/* %{buildroot}/root/
-#mkdir -p %{buildroot}/sbin/
-#cp -R /bin/* %{buildroot}/sbin/
-#selinux
-#srv
-#sys
-#tmp
-#usr
-#var
-
+echo "ls /"
+#ls /
+#sleep 30
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/bin/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/bin/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/boot/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/boot/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/builddir/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/builddir/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/dev/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/dev/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/etc/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/etc/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/home/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/home/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/installation-homedir/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/installation-homedir/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/media/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/media/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/mnt/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/mnt/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/root/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/root/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/tmp/
+#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/tmp/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
+mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
+cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
 
 
 %install
@@ -299,6 +304,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_root_sysconfdir}/opt/%{scl_vendor}/%{scl}
 %{_root_localstatedir}/opt/%{scl_vendor}/%{scl}
 %endif
+/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/*
 
 
 %files build
