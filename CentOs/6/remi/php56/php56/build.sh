@@ -14,22 +14,24 @@ mkdir -p $(rpm --eval '%{_srcrpmdir}')/
 mkdir -p $(rpm --eval '%{_buildrootdir}')/
 yum -y update
 yum -y install mock rpm-build scl-utils-build
-wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -qO "$(rpm --eval '%{_sourcedir}')/LICENSE"
-wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/Makefile" -qO "$(rpm --eval '%{_sourcedir}')/Makefile"
-wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/README" -qO "$(rpm --eval '%{_sourcedir}')/README"
+#wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -qO "$(rpm --eval '%{_sourcedir}')/LICENSE"
+#wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/Makefile" -qO "$(rpm --eval '%{_sourcedir}')/Makefile"
+#wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/README" -qO "$(rpm --eval '%{_sourcedir}')/README"
 #wget "https://raw.githubusercontent.com/jua74470/repo/1d29f8bc2b69ed2c391aa5d13b42472f8bdd93d6/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 #wget "https://raw.githubusercontent.com/jua74470/repo/master/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
-wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
+#wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 wget "https://raw.githubusercontent.com/jua74470/repo/e73c94d91f3ee2c7715a125f93524d469d00c1a1/CentOs/6/remi/php56/php56/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
 #wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
-wget https://raw.githubusercontent.com/jua74470/repo/fffde02235d13aa366060a85ecf8b6806240a8b7/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
-mock -r centos-6-x86_64 --clean
-rm -rf /var/lib/mock/epel-6-x86_64/result/*
+#wget https://raw.githubusercontent.com/jua74470/repo/fffde02235d13aa366060a85ecf8b6806240a8b7/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
+#mock -r centos-6-x86_64 --clean
+mock -r fedora-39-x86_64 --clean
+#rm -rf /var/lib/mock/epel-6-x86_64/result/*
 #mock -r centos-6-x86_64 --enable-network --shell --no-clean
-mock -r centos-6-x86_64 --enable-network --init --no-clean
-mock -r centos-6-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
-ls /var/lib/mock/epel-6-x86_64/result
+mock -r fedora-39-x86_64 --enable-network --init --no-clean
+mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
+ls /var/lib/mock/fedora-39-x86_64/result
+exit
 cd /var/lib/mock/epel-6-x86_64/root/
 rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm | cpio -idmv
 rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-build-5.6-1.el6.x86_64.rpm | cpio -idmv
