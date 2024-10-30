@@ -170,7 +170,7 @@ mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
 cp -R /var/lib/mock/epel-6-x86_64/root/var/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
 mkdir -p %{buildroot}%{macrosdir}/
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}%{macrosdir}/macros.php-scldevel
-
+wget https://raw.githubusercontent.com/jua74470/repo/5dbd58445fb74267c5d0882b519d720fb913d70c/CentOs/6/remi/php56/php56/etc/rpm/macros.php56-config -qO %{buildroot}%{macrosdir}/macros.php56-config
 
 
 %post runtime
@@ -207,7 +207,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 
 %files build
 %defattr(-,root,root)
-%{macrosdir}/macros.%{scl}-config
+%{macrosdir}/macros.php56-config
 
 
 %files scldevel
