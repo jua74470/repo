@@ -190,12 +190,18 @@ sleep 30
 #cp -R /bin/* %{buildroot}/lib/
 #mkdir -p %{buildroot}/lib64/
 #cp -R /bin/* %{buildroot}/lib64/
-#media
-#mnt
-#opt
-#proc
-#root
-#sbin
+#mkdir -p %{buildroot}/media/
+#cp -R /bin/* %{buildroot}/media/
+#mkdir -p %{buildroot}/mnt/
+#cp -R /bin/* %{buildroot}/mnt/
+#mkdir -p %{buildroot}/opt/
+#cp -R /bin/* %{buildroot}/opt/
+#mkdir -p %{buildroot}/proc/
+#cp -R /bin/* %{buildroot}/proc/
+#mkdir -p %{buildroot}/root/
+#cp -R /bin/* %{buildroot}/root/
+#mkdir -p %{buildroot}/sbin/
+#cp -R /bin/* %{buildroot}/sbin/
 #selinux
 #srv
 #sys
