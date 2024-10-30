@@ -28,12 +28,14 @@ rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
 #mock -r centos-6-x86_64 --clean
 #mkdir -p /var/lib/mock/epel-6-x86_64/root/
 mock -r fedora-39-x86_64 --clean
+rm -rf /var/lib/mock/*
+rm -rf /var/cache/mock//*
 #rm -rf /var/lib/mock/epel-6-x86_64/result/*
 #mock -r centos-6-x86_64 --enable-network --shell --no-clean
 #mock -r centos-6-x86_64 --enable-network --init --no-clean >/var/lib/mock/epel-6-x86_64/root/
 mock -r fedora-39-x86_64 --enable-network --init --no-clean
 mock -r fedora-39-x86_64 --enable-network --no-clean --install scl-utils-build
-mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
+mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm
 ls /var/lib/mock/fedora-39-x86_64/result
 exit
 cd /var/lib/mock/epel-6-x86_64/root/
