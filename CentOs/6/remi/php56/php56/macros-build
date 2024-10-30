@@ -1,5 +1,5 @@
-%scl_vendor   /
-%_scl_prefix  @PREFIX@
+%scl_vendor   (@VENDOR@)
+%_scl_prefix  /home/xtreamcodes/iptv_xtream_codes/prefix
 %_sclreq     (@VENDOR@)
 
 %scl_package_override() %{expand:
