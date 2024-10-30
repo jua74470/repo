@@ -40,7 +40,7 @@ mock -r fedora-39-x86_64 --enable-network --no-clean --install scl-utils-build
 #mock -r centos-6-x86_64 --enable-network --no-clean --install scl-utils-build
 #mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm
 #mock -r centos-6-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
-mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm/result
+mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm
 ls /var/lib/mock/fedora-39-x86_64/result/
 exit
 cd /var/lib/mock/epel-6-x86_64/root/
