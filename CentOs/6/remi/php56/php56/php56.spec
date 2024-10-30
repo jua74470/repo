@@ -301,7 +301,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_root_datadir}/Modules/modulefiles/%{scl_name}
 %endif
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
-%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/{scl}
+%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/%{scl}
 %{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/%{scl}
 %endif
 
