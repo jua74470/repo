@@ -20,8 +20,8 @@ wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/p
 #wget "https://raw.githubusercontent.com/jua74470/repo/1d29f8bc2b69ed2c391aa5d13b42472f8bdd93d6/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 #wget "https://raw.githubusercontent.com/jua74470/repo/master/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
-#wget "https://raw.githubusercontent.com/jua74470/repo/9d0d89abf0eec791bb6f1c3646a1d76fac587429/CentOs/6/remi/php56/php56/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
-wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
+wget "https://raw.githubusercontent.com/jua74470/repo/3dffe14af30e82f97fafefbd558a1ba9f423723c/CentOs/6/remi/php56/php56/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
+#wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
 wget https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
 mock -r centos-6-x86_64 --clean
@@ -30,6 +30,7 @@ rm -rf /var/lib/mock/epel-6-x86_64/result/*
 mock -r centos-6-x86_64 --enable-network --init --no-clean
 mock -r centos-6-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
 ls /var/lib/mock/epel-6-x86_64/result
+exit
 #/var/lib/mock/epel-6-x86_64/root/trouvemoi
 #mock -r centos-6-x86_64 --enable-network --no-clean --install /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm \
 #/var/lib/mock/epel-6-x86_64/result/php56-build-5.6-1.el6.x86_64.rpm \
