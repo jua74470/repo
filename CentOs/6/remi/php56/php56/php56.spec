@@ -129,7 +129,6 @@ be installed on one system.
 %setup -c -T
 
 %build
-#runtime
 mkdir -p %{buildroot}/etc/scl/prefixes/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/share/doc/php56-runtime-5.6/
@@ -163,23 +162,12 @@ mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/
 cp -R /var/lib/mock/epel-6-x86_64/root/lib/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/
 cp -R /var/lib/mock/epel-6-x86_64/root/lib64/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/
-#mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
-#cp -R /var/lib/mock/epel-6-x86_64/root/opt/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
-#cp -R /var/lib/mock/epel-6-x86_64/root/proc/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
 cp -R /var/lib/mock/epel-6-x86_64/root/sbin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
-#cp -R /var/lib/mock/epel-6-x86_64/root/selinux/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
-#cp -R /var/lib/mock/epel-6-x86_64/root/srv/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
-#cp -R /var/lib/mock/epel-6-x86_64/root/sys/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
 cp -R /var/lib/mock/epel-6-x86_64/root/usr/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
 cp -R /var/lib/mock/epel-6-x86_64/root/var/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
-#scl devel
 mkdir -p %{buildroot}/etc/rpm/
 wget https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56/etc/rpm/macros.php-scldevel -qO %{buildroot}/etc/rpm/macros.php-scldevel
 
@@ -202,7 +190,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %files
 
 
-%if 0%{?fedora} < 19 && 0%{?rhel} < 7
+
 %files runtime
 %defattr(-,root,root)
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/bin/*
@@ -211,53 +199,15 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/etc/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/*
-#%/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/*
-#%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/*
-#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/*
-#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/*
-#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/*
-%else
-%files runtime -f filesystem
-%defattr(-,root,root)
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/bin/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/boot/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/dev/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/etc/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/*
-#%/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/*
-#%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/*
-#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/*
-#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/*
-#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/*
-%endif
-#
-#%license LICENSE
-#%doc README
-#%scl_files
-#%{_root_mandir}/man7/%{scl_name}.*
-#%{?_licensedir:%{_datadir}/licenses}
-#%{_datadir}/tests
-#%if ! %{with_modules}
-#%{_root_datadir}/Modules/modulefiles/%{scl_name}
-#%endif
-#%if 0%{?fedora} < 26 && 0%{?rhel} < 8
-#%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
-#%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
-#%endif
+
 
 
 %files build
 %defattr(-,root,root)
 %{macrosdir}/macros.%{scl}-config
-#%{scl_vendor}
-
 
 
 %files scldevel
