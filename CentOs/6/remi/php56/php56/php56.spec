@@ -170,6 +170,37 @@ help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 echo "ls /opt"
 ls /
 sleep 30
+#mkdir -p %{buildroot}/bin/
+#cp -R /bin/* %{buildroot}/bin/
+#mkdir -p %{buildroot}/boot/
+#cp -R /bin/* %{buildroot}/boot/
+#mkdir -p %{buildroot}/builddir/
+#cp -R /bin/* %{buildroot}/builddir/
+#mkdir -p %{buildroot}/dev/
+#cp -R /bin/* %{buildroot}/dev/
+#mkdir -p %{buildroot}/etc/
+#cp -R /bin/* %{buildroot}/etc/
+#mkdir -p %{buildroot}/home/
+#cp -R /bin/* %{buildroot}/home/
+#mkdir -p %{buildroot}/installation-homedir/
+#cp -R /bin/* %{buildroot}/installation-homedir/
+#mkdir -p %{buildroot}/lib/
+#cp -R /bin/* %{buildroot}/lib/
+#mkdir -p %{buildroot}/lib64/
+#cp -R /bin/* %{buildroot}/lib64/
+#media
+#mnt
+#opt
+#proc
+#root
+#sbin
+#selinux
+#srv
+#sys
+#tmp
+#usr
+#var
+
 
 
 %install
