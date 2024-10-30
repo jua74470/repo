@@ -14692,8 +14692,8 @@ cp -R /var/lib/mock/epel-6-x86_64/root/lib64/* %{buildroot}%{_scl_prefix}/prefix
 #mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
 #cp -R /var/lib/mock/epel-6-x86_64/root/opt/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
-cp -R /var/lib/mock/epel-6-x86_64/root/proc/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
-mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
+#cp -R /var/lib/mock/epel-6-x86_64/root/proc/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
+#mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
 cp -R /var/lib/mock/epel-6-x86_64/root/sbin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
 mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
 cp -R /var/lib/mock/epel-6-x86_64/root/selinux/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
@@ -14741,7 +14741,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_scl_prefix}/prefix/%{scl_vendor}/root/lib/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/*
 #%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/*
-%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
+#%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/*
 %{_scl_prefix}/prefix/%{scl_vendor}/root/srv/*
