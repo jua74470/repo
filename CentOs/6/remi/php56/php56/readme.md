@@ -15,7 +15,7 @@ mkdir -p $(rpm --eval '%{_buildrootdir}')/
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/Makefile" -O "$(rpm --eval '%{_sourcedir}')/Makefile"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/README" -O "$(rpm --eval '%{_sourcedir}')/README"
-wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/macros-build" -O "$(rpm --eval '%{_sourcedir}')/macros-build"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
 wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
 ```
