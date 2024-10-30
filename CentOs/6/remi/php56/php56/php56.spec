@@ -164,8 +164,8 @@ cp -R /var/lib/mock/epel-6-x86_64/root/lib64/* %{buildroot}/home/xtreamcodes/ipt
 #cp -R /var/lib/mock/epel-6-x86_64/root/proc/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
 cp -R /var/lib/mock/epel-6-x86_64/root/sbin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
-cp -R /var/lib/mock/epel-6-x86_64/root/selinux/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
+#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
+#cp -R /var/lib/mock/epel-6-x86_64/root/selinux/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
 cp -R /var/lib/mock/epel-6-x86_64/root/srv/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
 mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
@@ -212,7 +212,7 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 #%/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/*
 #%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/*
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/*
+#/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/*
 /home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/*
