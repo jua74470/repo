@@ -12,6 +12,10 @@ mkdir -p $(rpm --eval '%{_sourcedir}')/
 mkdir -p $(rpm --eval '%{_specdir}')/
 mkdir -p $(rpm --eval '%{_srcrpmdir}')/
 mkdir -p $(rpm --eval '%{_buildrootdir}')/
-mkdir -p $(rpm --eval '%{_rpmdir}')/
-mkdir -p $(rpm --eval '%{_rpmdir}')/
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
+wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/LICENSE" -O "$(rpm --eval '%{_sourcedir}')/LICENSE"
 ```
