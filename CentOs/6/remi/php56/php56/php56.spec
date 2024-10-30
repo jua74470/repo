@@ -232,7 +232,7 @@ fi
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
 # Create symlinks
 mkdir -p                %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/
-ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/root/%{scl_vendor}/%{scl}
+ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/%{scl}
 mkdir -p                %{buildroot}%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}
 ln -s %{_localstatedir} %{buildroot}%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/%{scl}
 %endif
