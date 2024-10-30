@@ -172,48 +172,34 @@ help2man -N --section 7 ./h2m_helper -o %{scl_name}.7
 echo "ls /"
 #ls /
 #sleep 30
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/bin/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/bin/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/boot/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/boot/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/builddir/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/builddir/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/dev/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/dev/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/etc/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/etc/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/home/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/home/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/installation-homedir/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/installation-homedir/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/lib64/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/media/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/media/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/mnt/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/mnt/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/opt/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/proc/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/root/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/root/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sbin/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/selinux/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/srv/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/sys/
-#mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/tmp/
-#cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/tmp/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/usr/
-mkdir -p %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
-cp -R /bin/* %{buildroot}/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/var/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/
+mkdir -p %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
+cp -R /bin/* %{buildroot}%{_scl_prefix}/prefix/%{scl_vendor}/root/var/
 
 
 %install
@@ -245,10 +231,10 @@ fi
 
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
 # Create symlinks
-mkdir -p                %{buildroot}%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/
-ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/%{scl}
-mkdir -p                %{buildroot}%{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}
-ln -s %{_localstatedir} %{buildroot}%{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/%{scl}
+mkdir -p                %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/
+ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/root/%{scl_vendor}/%{scl}
+mkdir -p                %{buildroot}%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}
+ln -s %{_localstatedir} %{buildroot}%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl_vendor}/%{scl}
 %endif
 
 # syspaths
@@ -301,15 +287,29 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_root_datadir}/Modules/modulefiles/%{scl_name}
 %endif
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
-%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/%{scl}
-%{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/%{scl}
+%{_root_sysconfdir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
+%{_root_localstatedir}%{_scl_prefix}/prefix/%{scl_vendor}/root/%{scl}
 %endif
 
 
 %files build
 %defattr(-,root,root)
 %{macrosdir}/macros.%{scl}-config
-/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/*
+%{scl_vendor}
+%{_scl_prefix}/prefix/%{scl_vendor}/root/bin/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/boot/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/dev/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/etc/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/lib/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/lib64/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/opt/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/proc/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/sbin/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/selinux/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/srv/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/sys/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/usr/*
+%{_scl_prefix}/prefix/%{scl_vendor}/root/var/*
 
 
 
