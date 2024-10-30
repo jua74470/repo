@@ -245,10 +245,10 @@ fi
 
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
 # Create symlinks
-mkdir -p                %{buildroot}%{_root_sysconfdir}/opt/%{scl_vendor}
-ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}/opt/%{scl_vendor}/%{scl}
-mkdir -p                %{buildroot}%{_root_localstatedir}/opt/%{scl_vendor}
-ln -s %{_localstatedir} %{buildroot}%{_root_localstatedir}/opt/%{scl_vendor}/%{scl}
+mkdir -p                %{buildroot}%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/
+ln -s %{_sysconfdir}    %{buildroot}%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/%{scl}
+mkdir -p                %{buildroot}%{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}
+ln -s %{_localstatedir} %{buildroot}%{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/%{scl}
 %endif
 
 # syspaths
@@ -301,15 +301,16 @@ restorecon -R %{_localstatedir} &>/dev/null || :
 %{_root_datadir}/Modules/modulefiles/%{scl_name}
 %endif
 %if 0%{?fedora} < 26 && 0%{?rhel} < 8
-%{_root_sysconfdir}/opt/%{scl_vendor}/%{scl}
-%{_root_localstatedir}/opt/%{scl_vendor}/%{scl}
+%{_root_sysconfdir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/{scl}
+%{_root_localstatedir}/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/%{scl}
 %endif
-/home/xtreamcodes/iptv_xtream_codes/prefix/php56/root/*
 
 
 %files build
 %defattr(-,root,root)
 %{macrosdir}/macros.%{scl}-config
+/home/xtreamcodes/iptv_xtream_codes/prefix/%{scl_vendor}/root/*
+
 
 
 %files scldevel
