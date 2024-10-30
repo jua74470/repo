@@ -33,7 +33,7 @@ rm -rf /var/cache/mock/*
 #mkdir -p /var/lib/mock/epel-6-x86_64/root/
 #rm -rf /var/lib/mock/epel-6-x86_64/result/*
 #mock -r centos-6-x86_64 --enable-network --shell --no-clean
-#mock -r centos-6-x86_64 --enable-network --init --no-clean > /var/lib/mock/epel-6-x86_64/root/rpm.rpm
+#mock -r centos-6-x86_64 --enable-network --init --no-clean > /var/lib/mock/epel-6-x86_64/root/rpm.log
 #mock -r centos-6-x86_64 --enable-network --init --no-clean
 mock -r fedora-39-x86_64 --enable-network --init --no-clean
 mock -r fedora-39-x86_64 --enable-network --no-clean --install scl-utils-build
