@@ -20,7 +20,7 @@ wget "https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/p
 #wget "https://raw.githubusercontent.com/jua74470/repo/1d29f8bc2b69ed2c391aa5d13b42472f8bdd93d6/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 #wget "https://raw.githubusercontent.com/jua74470/repo/master/CentOs/6/remi/php56/php56/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
 wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/macros-build" -qO "$(rpm --eval '%{_sourcedir}')/macros-build"
-wget "https://raw.githubusercontent.com/jua74470/repo/ad4a59c5225b1c4dbba55586bf9e82789ea5fa6e/CentOs/6/remi/php56/php56/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
+wget "https://raw.githubusercontent.com/jua74470/repo/7b721bcf298c06717088112c5fbcb0679f56348e/CentOs/6/remi/php56/php56/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
 #wget "https://git.remirepo.net/cgit/rpms/scl-php56/php56.git/plain/php56.spec" -qO "$(rpm --eval '%{_specdir}')/php56.spec"
 rpmbuild -bs "$(rpm --eval '%{_specdir}')/php56.spec"
 wget https://github.com/jua74470/repo/raw/refs/heads/main/CentOs/6/remi/php56/php56/centos-6-x86_64.cfg -qO /etc/mock/centos-6-x86_64.cfg
