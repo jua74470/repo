@@ -1,5 +1,5 @@
 #!/bin/bash
-commit=0348ec05ecaef93cf3ce073067e11e4a431da9ff
+commit=94b053b9fa6014519c6fc04ddd9c0fabc4a9ea3d
 mkdir -p $(rpm --eval '%{_topdir}')/
 mkdir -p $(rpm --eval '%{_builddir}')/
 mkdir -p $(rpm --eval '%{_rpmdir}')/
@@ -34,15 +34,14 @@ rm -rf /var/cache/mock/*
 #rm -rf /var/lib/mock/epel-6-x86_64/result/*
 #mock -r centos-6-x86_64 --enable-network --shell --no-clean
 #mock -r centos-6-x86_64 --enable-network --init --no-clean > /var/lib/mock/epel-6-x86_64/root/rpm.rpm
-#mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm/root/
 #mock -r centos-6-x86_64 --enable-network --init --no-clean
 mock -r fedora-39-x86_64 --enable-network --init --no-clean
 mock -r fedora-39-x86_64 --enable-network --no-clean --install scl-utils-build
 #mock -r centos-6-x86_64 --enable-network --no-clean --install scl-utils-build
 #mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm
 #mock -r centos-6-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-1$(rpm --eval '%{dist}').src.rpm
-ls /var/lib/mock/epel-6-x86_64/result/
 mock -r fedora-39-x86_64 --enable-network --no-clean --rebuild $(rpm --eval '%{_srcrpmdir}')/php56-5.6-40$(rpm --eval '%{dist}').src.rpm/result
+ls /var/lib/mock/fedora-39-x86_64/result/
 exit
 cd /var/lib/mock/epel-6-x86_64/root/
 rpm2cpio /var/lib/mock/epel-6-x86_64/result/php56-5.6-1.el6.x86_64.rpm | cpio -idmv
