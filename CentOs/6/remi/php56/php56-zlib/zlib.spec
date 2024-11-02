@@ -143,11 +143,13 @@ make test
 %{?scl:scl enable %{scl} - << \EOF}
 set -ex
 make install DESTDIR=$RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT/usr/src/debug/php56-zlib-1.2.7-21*
 
 cd contrib/minizip
 make install DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+rm -rf $RPM_BUILD_ROOT/usr/src/debug/php56-zlib-1.2.7-21*
 %{?scl:EOF}
 
 
