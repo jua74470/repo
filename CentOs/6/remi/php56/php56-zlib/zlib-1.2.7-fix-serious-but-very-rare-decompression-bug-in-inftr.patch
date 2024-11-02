@@ -1,0 +1,47 @@
+From 51370f365607fe14a6a7a1a27b3bd29d788f5e5b Mon Sep 17 00:00:00 2001
+From: Mark Adler <madler@alumni.caltech.edu>
+Date: Mon, 18 Feb 2013 21:06:35 -0800
+Subject: [PATCH] Fix serious but very rare decompression bug in inftrees.c.
+
+inftrees.c compared the number of used table entries to the maximum
+allowed value using >= instead of >.  This patch fixes those to use
+>.  The bug was discovered by Ignat Kolesnichenko of Yandex LC
+where they have run petabytes of data through zlib.  Triggering the
+bug is apparently very rare, seeing as how it has been out there in
+the wild for almost three years before being discovered.  The bug
+is instantiated only if the exact maximum number of decoding table
+entries, ENOUGH_DISTS or ENOUGH_LENS is used by the block being
+decoded, resulting in the false positive of overflowing the table.
+---
+ inftrees.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/inftrees.c b/inftrees.c
+index 873da59..3781399 100644
+--- a/inftrees.c
++++ b/inftrees.c
+@@ -208,8 +208,8 @@ unsigned short FAR *work;
+     mask = used - 1;            /* mask for comparing low */
+
+     /* check available table space */
+-    if ((type == LENS && used >= ENOUGH_LENS) ||
+-        (type == DISTS && used >= ENOUGH_DISTS))
++    if ((type == LENS && used > ENOUGH_LENS) ||
++        (type == DISTS && used > ENOUGH_DISTS))
+         return 1;
+
+     /* process all codes and make table entries */
+@@ -277,8 +277,8 @@ unsigned short FAR *work;
+
+             /* check for enough space */
+             used += 1U << curr;
+-            if ((type == LENS && used >= ENOUGH_LENS) ||
+-                (type == DISTS && used >= ENOUGH_DISTS))
++            if ((type == LENS && used > ENOUGH_LENS) ||
++                (type == DISTS && used > ENOUGH_DISTS))
+                 return 1;
+
+             /* point entry in root table to sub-table */
+--
+1.9.3
+
