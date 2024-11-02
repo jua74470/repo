@@ -1,0 +1,43 @@
+From 0cf495a1ca941428c0b11e2307cad760ae44993e Mon Sep 17 00:00:00 2001
+From: Mark Adler <madler@alumni.caltech.edu>
+Date: Sat, 29 Sep 2012 22:23:47 -0700
+Subject: [PATCH] Fix bug where gzopen(), gzclose() would write an empty file.
+
+A gzopen() to write (mode "w") followed immediately by a gzclose()
+would output an empty zero-length file.  What it should do is write
+an empty gzip file, with the gzip header, empty deflate content,
+and gzip trailer totalling 20 bytes.  This fixes it to do that.
+---
+ gzwrite.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
+
+diff --git a/gzwrite.c b/gzwrite.c
+index f53aace..79a69a5 100644
+--- a/gzwrite.c
++++ b/gzwrite.c
+@@ -554,15 +554,14 @@ int ZEXPORT gzclose_w(file)
+     }
+
+     /* flush, free memory, and close file */
+-    if (state->size) {
+-        if (gz_comp(state, Z_FINISH) == -1)
+-            ret = state->err;
+-        if (!state->direct) {
+-            (void)deflateEnd(&(state->strm));
+-            free(state->out);
+-        }
+-        free(state->in);
++    if (gz_comp(state, Z_FINISH) == -1)
++        ret = state->err;
++    if (!state->direct) {
++        (void)deflateEnd(&(state->strm));
++        free(state->out);
+     }
++    if (state->size)
++        free(state->in);
+     gz_error(state, Z_OK, NULL);
+     free(state->path);
+     if (close(state->fd) == -1)
+--
+1.9.3
+
