@@ -94,20 +94,20 @@ developing applications which use minizip.
 %{?scl:scl enable %{scl} - << \EOF}
 set -ex
 %setup -n %{pkg_name}-%{version} -q
-%patch0 -p1 -b .fixuncrypt
+%patch -P0 -p1 -b .fixuncrypt
 %ifarch s390 s390x
 %patch1 -p1 -b .optimized-deflate
 %endif
-%patch2 -p1 -b .z-flush
+%patch -P2 -p1 -b .z-flush
 iconv -f iso-8859-2 -t utf-8 < ChangeLog > ChangeLog.tmp
 mv ChangeLog.tmp ChangeLog
 
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch12 -p1
-%patch13 -p1
+%patch -P3 -p1
+%patch -P4 -p1
+%patch -P5 -p1
+%patch -P6 -p1
+%patch -P12 -p1
+%patch -P13 -p1
 %{?scl:EOF}
 
 
