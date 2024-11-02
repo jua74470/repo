@@ -1,6 +1,7 @@
 %{?scl:%scl_package zlib}
 %{!?scl:%global pkg_name %{name}}
 %global debug_package %{nil}
+%define _unpackaged_files_terminate_build 0
 
 Summary: The compression and decompression library
 Name: %{?scl_prefix}zlib
@@ -149,14 +150,6 @@ cd contrib/minizip
 make install DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
-rm -rf $RPM_BUILD_ROOT/usr/src/debug/php56-zlib-1.2.7-21.*
-rm -rf /usr/src/debug/php56-zlib-1.2.7-21.*
-rm -rf /usr/lib/debug/.dwz/php56-zlib-1.2.7-21.*
-rm -rf $RPM_BUILD_ROOT/usr/lib/debug/.dwz/php56-zlib-1.2.7-21*
-rm -rf /usr/lib/debug/opt/remi/php56/root/usr/lib64/libminizip.so.1.0.0-1.2.7-21.*
-rm -rf $RPM_BUILD_ROOT/usr/lib/debug/opt/remi/php56/root/usr/lib64/libminizip.so.1.0.0-1.2.7-21.*
-rm -rf /usr/lib/debug/opt/remi/php56/root/usr/lib64/libz.so.1.2.7-1.2.7-21.*
-rm -rf $RPM_BUILD_ROOT/usr/lib/debug/opt/remi/php56/root/usr/lib64/libz.so.1.2.7-1.2.7-21.*
 
 
 %{?scl:EOF}
