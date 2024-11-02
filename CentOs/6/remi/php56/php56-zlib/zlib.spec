@@ -1,5 +1,8 @@
+%{?scl:%scl_package zlib}
+%{!?scl:%global pkg_name %{name}}
+
 Summary: The compression and decompression library
-Name: zlib
+Name: %{?scl_prefix}zlib
 Version: 1.2.7
 Release: 21%{?dist}
 # /contrib/dotzlib/ have Boost license
@@ -25,53 +28,73 @@ Patch12: zlib-1.2.7-cve-2022-37434.patch
 Patch13: zlib-1.2.7-cve-2022-37434_2.patch
 
 
+%{?scl:Requires: %{scl}-runtime}
+%{?scl:BuildRequires: %{scl}-runtime}
 BuildRequires: automake, autoconf, libtool
+AutoReqProv: no
+AutoReq: no
+
 
 %description
 Zlib is a general-purpose, patent-free, lossless data compression
 library which is used by many different programs.
 
+
 %package devel
 Summary: Header files and libraries for Zlib development
 Group: Development/Libraries
-Requires: %{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Provides: perl(:MODULE_COMPAT_)
+
 
 %description devel
 The zlib-devel package contains the header files and libraries needed
 to develop programs that use the zlib compression and decompression
 library.
 
+
 %package static
 Summary: Static libraries for Zlib development
 Group: Development/Libraries
-Requires: %{pkg_name}-devel = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name}-devel = %{version}-%{release}
+
 
 %description static
 The zlib-static package includes static libraries needed
 to develop programs that use the zlib compression and
 decompression library.
 
-%package -n minizip
+
+%package -n %{?scl_prefix}minizip
 Summary: Library for manipulation with .zip archives
 Group: System Environment/Libraries
-Requires: %{pkg_name} = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name} = %{version}-%{release}
+Provides: perl(:MODULE_COMPAT_)
 
-%description -n minizip
+
+%description -n %{?scl_prefix}minizip
 Minizip is a library for manipulation with files from .zip archives.
 
-%package -n minizip-devel
+
+%package -n %{?scl_prefix}minizip-devel
 Summary: Development files for the minizip library
 Group: Development/Libraries
-Requires: minizip = %{version}-%{release}
-Requires: %{pkg_name}-devel = %{version}-%{release}
+Requires: %{?scl_prefix}minizip = %{version}-%{release}
+Requires: %{?scl_prefix}%{pkg_name}-devel = %{version}-%{release}
 Requires: pkgconfig
+Provides: perl(:MODULE_COMPAT_)
 
-%description -n minizip-devel
+
+%description -n %{?scl_prefix}minizip-devel
 This package contains the libraries and header files needed for
 developing applications which use minizip.
 
+
 %prep
-%setup -q
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
+%setup -n %{pkg_name}-%{version} -q
 %patch0 -p1 -b .fixuncrypt
 %ifarch s390 s390x
 %patch1 -p1 -b .optimized-deflate
@@ -86,8 +109,13 @@ mv ChangeLog.tmp ChangeLog
 %patch6 -p1
 %patch12 -p1
 %patch13 -p1
+%{?scl:EOF}
+
 
 %build
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
 %ifarch ppc64 ppc64le
 export CFLAGS="$RPM_OPT_FLAGS -O3"
 %else
@@ -102,29 +130,62 @@ cd contrib/minizip
 autoreconf --install
 %configure --enable-static=no
 make %{?_smp_mflags}
+%{?scl:EOF}
+
 
 %check
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
 make test
+%{?scl:EOF}
+
 
 %install
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
 make install DESTDIR=$RPM_BUILD_ROOT
 
 cd contrib/minizip
 make install DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+%{?scl:EOF}
 
-%post -p /sbin/ldconfig
 
-%postun -p /sbin/ldconfig
+%post
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
+%{?scl:EOF}
 
-%post -n minizip -p /sbin/ldconfig
 
-%postun -n minizip -p /sbin/ldconfig
+%postun
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
+%{?scl:EOF}
+
+
+%post -n %{?scl_prefix}minizip
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
+%{?scl:EOF}
+
+
+%postun -n %{?scl_prefix}minizip
+%{?scl:scl enable %{scl} - << \EOF}
+set -ex
+/sbin/ldconfig
+%{?scl:EOF}
+
 
 %files
 %doc README ChangeLog FAQ
 %{_libdir}/libz.so.*
+
 
 %files devel
 %doc README doc/algorithm.txt test/example.c
@@ -134,19 +195,23 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_includedir}/zconf.h
 %{_mandir}/man3/zlib.3*
 
+
 %files static
 %doc README
 %{_libdir}/libz.a
 
-%files -n minizip
+
+%files -n %{?scl_prefix}minizip
 %doc contrib/minizip/MiniZip64_info.txt contrib/minizip/MiniZip64_Changes.txt
 %{_libdir}/libminizip.so.*
 
-%files -n minizip-devel
+
+%files -n %{?scl_prefix}minizip-devel
 %dir %{_includedir}/minizip
 %{_includedir}/minizip/*.h
 %{_libdir}/libminizip.so
 %{_libdir}/pkgconfig/minizip.pc
+
 
 %changelog
 * Mon Jan 30 2023 Lukas Javorsky <ljavorsk@redhat.com> - 1.2.7-21
