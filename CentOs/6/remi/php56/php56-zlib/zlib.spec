@@ -11,21 +11,21 @@ Group: System Environment/Libraries
 URL: http://www.zlib.net/
 Source: https://zlib.net/fossils/zlib-%{version}.tar.gz
 
-Patch0: zlib-1.2.5-minizip-fixuncrypt.patch
+Patch0: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.5-minizip-fixuncrypt.patch
 # resolves: #805113
-Patch1: zlib-1.2.7-optimized-s390.patch
+Patch1: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-optimized-s390.patch
 # resolves: #844791
-Patch2: zlib-1.2.7-z-block-flush.patch
+Patch2: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-z-block-flush.patch
 # resolves: #1127330
-Patch3: zlib-1.2.7-fix-serious-but-very-rare-decompression-bug-in-inftr.patch
+Patch3: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-fix-serious-but-very-rare-decompression-bug-in-inftr.patch
 # resolves: #1337441
-Patch4: zlib-1.2.7-Fix-bug-where-gzopen-gzclose-would-write-an-empty-fi.patch
+Patch4: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-Fix-bug-where-gzopen-gzclose-would-write-an-empty-fi.patch
 # resolves: #1875700
-Patch5: zlib-1.2.7-fix-access-password-protected-files-libminizip.patch
-Patch6: zlib-1.2.7-CVE-2018-25032.patch
+Patch5: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-fix-access-password-protected-files-libminizip.patch
+Patch6: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-CVE-2018-25032.patch
 # Patches for CVE-2022-37434
-Patch12: zlib-1.2.7-cve-2022-37434.patch
-Patch13: zlib-1.2.7-cve-2022-37434_2.patch
+Patch12: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-cve-2022-37434.patch
+Patch13: https://raw.githubusercontent.com/jua74470/repo/refs/heads/main/CentOs/6/remi/php56/php56-zlib/zlib-1.2.7-cve-2022-37434_2.patch
 
 
 %{?scl:Requires: %{scl}-runtime}
