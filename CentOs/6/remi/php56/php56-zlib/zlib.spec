@@ -1,5 +1,6 @@
 %{?scl:%scl_package zlib}
 %{!?scl:%global pkg_name %{name}}
+%global debug_package %{nil}
 
 Summary: The compression and decompression library
 Name: %{?scl_prefix}zlib
