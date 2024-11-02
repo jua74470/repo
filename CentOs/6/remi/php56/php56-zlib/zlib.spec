@@ -9,7 +9,7 @@ Release: 21%{?dist}
 License: zlib and Boost
 Group: System Environment/Libraries
 URL: http://www.zlib.net/
-Source: http://www.zlib.net/zlib-%{version}.tar.bz2
+Source: https://zlib.net/fossils/zlib-%{version}.tar.bz2
 
 Patch0: zlib-1.2.5-minizip-fixuncrypt.patch
 # resolves: #805113
