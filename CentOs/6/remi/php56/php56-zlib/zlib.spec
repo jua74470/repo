@@ -93,7 +93,6 @@ developing applications which use minizip.
 %prep
 %{?scl:scl enable %{scl} - << \EOF}
 set -ex
-/sbin/ldconfig
 %setup -n %{pkg_name}-%{version} -q
 %patch0 -p1 -b .fixuncrypt
 %ifarch s390 s390x
@@ -115,7 +114,6 @@ mv ChangeLog.tmp ChangeLog
 %build
 %{?scl:scl enable %{scl} - << \EOF}
 set -ex
-/sbin/ldconfig
 %ifarch ppc64 ppc64le
 export CFLAGS="$RPM_OPT_FLAGS -O3"
 %else
@@ -136,7 +134,6 @@ make %{?_smp_mflags}
 %check
 %{?scl:scl enable %{scl} - << \EOF}
 set -ex
-/sbin/ldconfig
 make test
 %{?scl:EOF}
 
@@ -144,7 +141,6 @@ make test
 %install
 %{?scl:scl enable %{scl} - << \EOF}
 set -ex
-/sbin/ldconfig
 make install DESTDIR=$RPM_BUILD_ROOT
 
 cd contrib/minizip
